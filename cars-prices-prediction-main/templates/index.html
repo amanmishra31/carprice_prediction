@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <title>Car Prices Prediction Web APP</title>
+    <style>
+        html {
+            background: url(static/car1.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            /* background-image: url("static/car4.jpg"); */
+        }
+
+        form {
+            box-sizing: border-box;
+            font-size: 23px;
+            font-weight: bold;
+            color: white;
+            margin: 0px 13px;
+            padding: 9px 8px;
+        }
+
+
+        input[type=text] {
+
+            width: 100%;
+            padding: 12px;
+            /* border: 1px solid #ccc; */
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+            background: initial;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: sans-serif;
+            color: white;
+        }
+
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            /* border: 1px solid #ccc; */
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+            background: initial;
+            font-size: 15px;
+            font-weight: bold;
+            font-family: sans-serif;
+
+        }
+
+        input[type=submit] {
+            background-color: black;
+            /* color: white; */
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 23px;
+            color: white;
+
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            /* background-color: #f2f2f2; */
+            padding: 20px;
+            /* width: 45%; */
+            width: 40%;
+            margin: 16px 375px;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 41px;
+            font-weight: bold;
+            margin: 3px;
+            color: currentcolor;
+        }
+
+        p {
+            font-size: 40px;
+            font-weight: bold;
+            color: beige;
+            margin: 4px 445px;
+            padding: 1px 6px;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <h2>Car prices Prediction System</h2>
+    <div class="container">
+        <form method="post" action="{{url_for('home1')}}">
+            <label for="fname">In which year car was purchased ?</label>
+            <input type="text" id="fname" name="a" placeholder="Enter the purchased year" required>
+            <label for="lname">What is the current ex-showroom price of the car ?</label>
+            <input type="text" id="lname" name="b" placeholder="Enter the car price" required>
+            <label for="lname">What is distance completed by the car in Kilometers ?</label>
+            <input type="text" id="lname" name="c" placeholder="Enter the kilometers" required>
+            <label for="cars">What is the fuel type of the car ?</label>
+            <select name="d" id="cars" required>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="CNG">CNG</option>
+            </select>
+            <label for="cars">Are you a dealer or an individual ?</label>
+            <select name="e" id="cars" required>
+                <option value="Dealer">Dealer</option>
+                <option value="Individual">Individual</option>
+            </select>
+            <label for="cars">What is the Transmission Type ?</label>
+            <select name="f" id="cars" required>
+                <option value="Manual">Manual</option>
+                <option value="Automatic">Automatic</option>
+            </select>
+
+            <label for="cars">The number of owners the car had previously ?</label>
+            <select name="g" id="cars" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="1">2</option>
+
+            </select>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+    <div class="predict">
+        <p id="result">Result :- {{prediction_text}}</p>
+    </div>
+
+</body>
+
+</html>
